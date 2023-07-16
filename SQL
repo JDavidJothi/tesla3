@@ -1,0 +1,79 @@
+SELECT * FROM tblEmployees;
+
+ALTER TABLE tblEmployees ADD Salary INT;
+ALTER TABLE tblEmployees ADD City VARCHAR(250);
+ALTER TABLE tblEmployees ADD Gender VARCHAR(250);
+
+UPDATE tblEmployees SET Salary = 4000 WHERE ID = 1;
+UPDATE tblEmployees SET Salary = 3000 WHERE ID = 2;
+UPDATE tblEmployees SET Salary = 3500 WHERE ID = 3;
+UPDATE tblEmployees SET Salary = 4500 WHERE ID = 4;
+UPDATE tblEmployees SET Salary = 2800 WHERE ID = 5;
+UPDATE tblEmployees SET Salary = 7000 WHERE ID = 6;
+UPDATE tblEmployees SET Salary = 4800 WHERE ID = 7;
+UPDATE tblEmployees SET Salary = 5500 WHERE ID = 8;
+UPDATE tblEmployees SET Salary = 6500 WHERE ID = 9;
+UPDATE tblEmployees SET Salary = 8800 WHERE ID = 10;
+UPDATE tblEmployees SET Salary = 100000000 WHERE ID = 13;
+UPDATE tblEmployees SET Salary = 100000000 WHERE ID = 12;
+UPDATE tblEmployees SET Salary = 100000000 WHERE ID = 15;
+UPDATE tblEmployees SET Salary = 100000000 WHERE ID = 16;
+
+UPDATE tblEmployees SET City = 'London' WHERE ID = 1;
+UPDATE tblEmployees SET City = 'New York' WHERE ID = 2;
+UPDATE tblEmployees SET City = 'London' WHERE ID = 3;
+UPDATE tblEmployees SET City = 'London' WHERE ID = 4;
+UPDATE tblEmployees SET City = 'Sydney' WHERE ID = 7;
+UPDATE tblEmployees SET City = 'New York' WHERE ID = 8;
+UPDATE tblEmployees SET City = 'Sydney' WHERE ID = 9;
+UPDATE tblEmployees SET City = 'New York' WHERE ID = 10;
+UPDATE tblEmployees SET City = 'London' WHERE ID = 12;
+UPDATE tblEmployees SET City = 'London' WHERE ID = 13;
+UPDATE tblEmployees SET City = 'London' WHERE ID = 15;
+UPDATE tblEmployees SET City = 'New York' WHERE ID = 16;
+
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 1;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 2;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 3;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 4;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 7;
+UPDATE tblEmployees SET Gender = 'Female' WHERE ID = 8;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 9;
+UPDATE tblEmployees SET Gender = 'Female' WHERE ID = 10;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 12;
+UPDATE tblEmployees SET Gender = 'Female' WHERE ID = 13;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 15;
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 16;
+
+UPDATE tblEmployees SET Gender = 'Male' WHERE ID = 1;
+
+SELECT SUM(Salary) FROM tblEmployees;
+
+SELECT MIN(Salary) FROM tblEmployees;
+
+SELECT MAX(Salary) FROM tblEmployees;
+
+SELECT City, SUM(Salary) AS TOTALSALARY FROM tblEmployees GROUP BY City;
+
+SELECT City,SUM(Salary) AS TOTALSALARY FROM tblEmployees;
+
+SELECT City, Gender, SUM(Salary) AS TOTALSALARY FROM tblEmployees GROUP BY City,Gender;
+
+SELECT City, Gender, SUM(Salary) AS TOTALSALARY FROM tblEmployees GROUP BY City,Gender ORDER BY City;
+
+SELECT Gender, City, SUM(Salary) AS TOTALSALARY FROM tblEmployees GROUP BY Gender,City;
+
+SELECT Gender, City, SUM(Salary) AS TOTALSALARY,COUNT(ID) AS [Total Employees] FROM tblEmployees GROUP BY Gender,City;
+
+SELECT COUNT(*) FROM tblEmployees;
+
+SELECT COUNT(ID) FROM tblEmployees;
+
+SELECT Gender, City, SUM(Salary) AS TOTALSALARY,COUNT(ID) AS [Total Employees] FROM tblEmployees WHERE Gender = 'Male' GROUP BY Gender,City;
+
+SELECT Gender, City, SUM(Salary) AS TOTALSALARY,COUNT(ID) AS [Total Employees] FROM tblEmployees GROUP BY Gender,City HAVING Gender = 'Male';
+
+SELECT * FROM tblEmployees WHERE SUM(Salary) = 10000000;
+
+SELECT Gender, City, SUM(Salary) AS TOTALSALARY,COUNT(ID) AS [Total Employees] FROM tblEmployees GROUP BY Gender,City HAVING SUM(Salary) > 5000;
+
